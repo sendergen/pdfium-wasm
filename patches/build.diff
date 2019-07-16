@@ -42,15 +42,15 @@ index 40696d584..68fb948be 100644
        ]
        ldflags += [ "-m64" ]
      } else if (current_cpu == "x86") {
-@@ -1415,7 +1415,7 @@ config("default_warnings") {
- 
-         # Ignore warnings about MSVC optimization pragmas.
-         # TODO(thakis): Only for no_chromium_code? http://crbug.com/505314
--        "-Wno-ignored-pragma-optimize",
-+        "-Wno-deprecated-register",
-       ]
-     } else if (use_xcode_clang) {
-       cflags += [
+@@ -1507,7 +1507,7 @@ config("default_warnings") {
+         cflags += [
+           # Ignore warnings about MSVC optimization pragmas.
+           # TODO(thakis): Only for no_chromium_code? http://crbug.com/912662
+-          "-Wno-ignored-pragma-optimize",
++          "-Wno-deprecated-register",
+         ]
+         if (is_fuchsia) {
+           cflags += [
 @@ -2142,7 +2142,7 @@ config("symbols") {
          # which lld needs in order to generate a correct GDB index.
          # TODO(pcc): Try to make lld understand non-GNU-format pubnames
